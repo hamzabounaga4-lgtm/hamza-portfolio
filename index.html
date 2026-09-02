@@ -5,6 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Hamza Bounaga — Full-Stack Developer</title>
 <meta name="description" content="Hamza Bounaga — Full-stack developer in Morocco. Laravel, React, WordPress. Live work: GreatImmob short stays, conciergerie, and SAHRI SKIN.">
+<meta property="og:title" content="Hamza Bounaga — Full-Stack Developer">
+<meta property="og:description" content="Laravel, React, and WordPress. Live products: GreatImmob and SAHRI SKIN.">
+<meta property="og:image" content="https://hamzabounaga4-lgtm.github.io/hamza-portfolio/images/hamza.png">
+<meta property="og:type" content="website">
 <link rel="canonical" href="https://hamzabounaga4-lgtm.github.io/hamza-portfolio/">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -57,7 +61,7 @@
     inset: -40%;
     z-index: 3;
     pointer-events: none;
-    opacity: 0.07;
+    opacity: 0.04;
     mix-blend-mode: overlay;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='.9'/%3E%3C/svg%3E");
     animation: grain 0.45s steps(4) infinite;
@@ -121,11 +125,22 @@
   }
   .nav-logo {
     font-family: 'Space Grotesk', sans-serif;
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     font-weight: 700;
     color: var(--text-primary);
     letter-spacing: -0.5px;
     text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .nav-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center 12%;
+    border: 1px solid rgba(79,142,247,0.45);
   }
   .nav-logo span { color: var(--accent); }
   .nav-links { display: flex; gap: 2rem; list-style: none; }
@@ -140,7 +155,7 @@
     padding: 0.5rem 1.2rem;
     background: transparent;
     border: 0.5px solid var(--accent);
-    border-radius: 6px;
+    border-radius: 100px;
     color: var(--accent);
     font-size: 0.85rem;
     text-decoration: none;
@@ -170,14 +185,23 @@
   .hero-copy > * {
     animation: cinematic-in 1.1s cubic-bezier(.16,1,.3,1) both;
   }
-  .hero-copy > *:nth-child(1) { animation-delay: 0.15s; }
-  .hero-copy > *:nth-child(2) { animation-delay: 0.28s; }
-  .hero-copy > *:nth-child(3) { animation-delay: 0.42s; }
-  .hero-copy > *:nth-child(4) { animation-delay: 0.55s; }
-  .hero-copy > *:nth-child(5) { animation-delay: 0.68s; }
+  .hero-copy > *:nth-child(1) { animation-delay: 0.12s; }
+  .hero-copy > *:nth-child(2) { animation-delay: 0.22s; }
+  .hero-copy > *:nth-child(3) { animation-delay: 0.32s; }
+  .hero-copy > *:nth-child(4) { animation-delay: 0.44s; }
+  .hero-copy > *:nth-child(5) { animation-delay: 0.56s; }
+  .hero-copy > *:nth-child(6) { animation-delay: 0.68s; }
   @keyframes cinematic-in {
     from { opacity: 0; transform: translateY(46px) rotateX(16deg) translateZ(-40px); filter: blur(8px); }
     to { opacity: 1; transform: none; filter: none; }
+  }
+  .hero-name {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--text-primary);
+    margin-bottom: 0.85rem;
+    letter-spacing: 0.2px;
   }
   .hero-eyebrow {
     display: inline-flex;
@@ -187,7 +211,7 @@
     color: var(--accent);
     letter-spacing: 1.5px;
     text-transform: uppercase;
-    margin-bottom: 1.5rem;
+    margin-bottom: 0.85rem;
   }
   .hero-eyebrow::before {
     content: '';
@@ -245,7 +269,7 @@
     background: var(--accent);
     color: #fff;
     border: none;
-    border-radius: 8px;
+    border-radius: 100px;
     font-size: 0.9rem;
     font-weight: 500;
     text-decoration: none;
@@ -258,7 +282,7 @@
     background: rgba(255,255,255,0.03);
     color: var(--text-secondary);
     border: 0.5px solid var(--border-soft);
-    border-radius: 8px;
+    border-radius: 100px;
     font-size: 0.9rem;
     text-decoration: none;
     backdrop-filter: blur(8px);
@@ -276,8 +300,8 @@
   }
   .orb-scene {
     position: relative;
-    width: 320px;
-    height: 320px;
+    width: 340px;
+    height: 340px;
     transform-style: preserve-3d;
   }
   .orb-rig {
@@ -285,16 +309,19 @@
     height: 100%;
     position: relative;
     transform-style: preserve-3d;
-    animation: orb-float 8s ease-in-out infinite;
+    animation: orb-float 7s ease-in-out infinite;
   }
   @keyframes orb-float {
-    0%, 100% { transform: translateY(0) rotateX(8deg) rotateY(-12deg); }
-    50% { transform: translateY(-14px) rotateX(-6deg) rotateY(14deg); }
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
   }
   .orbit-tilt {
     position: absolute;
-    inset: 12px;
+    inset: 8px;
     transform-style: preserve-3d;
+    z-index: 1;
+    opacity: 0.75;
+    pointer-events: none;
   }
   .orbit-tilt.x { transform: rotateX(68deg); }
   .orbit-tilt.y { transform: rotateY(72deg); }
@@ -324,30 +351,27 @@
   @keyframes spin { to { transform: rotate(360deg); } }
   .orb-core {
     position: absolute;
-    inset: 58px;
+    inset: 20px;
     border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 4.4rem;
-    font-weight: 700;
-    color: var(--accent);
-    background:
-      radial-gradient(circle at 32% 28%, #3a5fa8, #10182c 58%, #070b16);
-    border: 2px solid rgba(79,142,247,0.45);
+    overflow: hidden;
+    background: #152038;
+    border: 3px solid rgba(79,142,247,0.55);
     box-shadow:
-      0 0 60px rgba(79,142,247,0.28),
-      inset 0 0 40px rgba(79,142,247,0.15);
-    transform: translateZ(40px);
+      0 0 0 8px rgba(79,142,247,0.08),
+      0 20px 60px rgba(5,8,20,0.55),
+      0 0 50px rgba(79,142,247,0.28);
+    transform: translateZ(24px);
+    z-index: 4;
+  }
+  .orb-core img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 8%;
+    display: block;
   }
   .orb-core::before {
-    content: '';
-    position: absolute;
-    inset: 18%;
-    border-radius: 50%;
-    background: radial-gradient(circle at 30% 25%, rgba(255,255,255,0.22), transparent 55%);
-    pointer-events: none;
+    content: none;
   }
   .stat-pill {
     position: absolute;
@@ -619,16 +643,14 @@
   }
   .contact-card { padding: 2.5rem; text-align: center; border-radius: 16px; }
   .contact-card .big-initial {
-    width: 80px; height: 80px;
+    width: 96px; height: 96px;
     border-radius: 50%;
-    background: var(--accent-glow);
-    border: 0.5px solid var(--border);
-    display: flex; align-items: center; justify-content: center;
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 2rem; font-weight: 700;
-    color: var(--accent);
+    object-fit: cover;
+    object-position: center 12%;
+    border: 2px solid rgba(79,142,247,0.45);
+    display: block;
     margin: 0 auto 1rem;
-    box-shadow: 0 0 40px rgba(79,142,247,0.2);
+    box-shadow: 0 0 40px rgba(79,142,247,0.22);
   }
   .contact-card h3 {
     font-family: 'Space Grotesk', sans-serif;
@@ -667,8 +689,8 @@
   @media (max-width: 768px) {
     .hero-grid, .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
     .hero-visual { margin: 0 auto; }
-    .orb-scene { width: 240px; height: 240px; }
-    .orb-core { font-size: 3rem; inset: 48px; }
+    .orb-scene { width: 260px; height: 260px; }
+    .orb-core { inset: 28px; }
     nav .nav-links { display: none; }
     h2 { margin-bottom: 2rem; }
     body { cursor: auto; }
@@ -694,7 +716,7 @@
 
 <div class="page">
 <nav>
-  <a href="#home" class="nav-logo">HB<span>.</span></a>
+  <a href="#home" class="nav-logo"><img src="images/hamza.png" alt="" class="nav-avatar" width="32" height="32">HB<span>.</span></a>
   <ul class="nav-links">
     <li><a href="#skills">Skills</a></li>
     <li><a href="#projects">Projects</a></li>
@@ -708,6 +730,7 @@
   <div class="hero-grid">
     <div class="hero-copy">
       <div class="hero-eyebrow">Available for freelance</div>
+      <p class="hero-name">Hamza Bounaga</p>
       <h1>Full-Stack<br>Developer<br><span class="accent-text">&amp; Engineer</span></h1>
       <p class="hero-sub">
         Building secure, scalable web applications with Laravel, React, and WordPress.
@@ -732,8 +755,9 @@
         <div class="orb-rig">
           <div class="orbit-tilt x"><div class="orbit"></div></div>
           <div class="orbit-tilt y"><div class="orbit"></div></div>
-          <div class="orbit-tilt z"><div class="orbit"></div></div>
-          <div class="orb-core">HB</div>
+          <div class="orb-core">
+            <img src="images/hamza.png" alt="Hamza Bounaga, full-stack developer">
+          </div>
         </div>
         <div class="stat-pill pill-1">
           <span class="num">7</span>
@@ -859,7 +883,6 @@
         </div>
         <div class="project-highlight">✦ Pack Rituel · free delivery nationwide · TAWJA 4.8/5</div>
         <a href="https://sahriskin.com" class="project-link" target="_blank" rel="noopener">sahriskin.com →</a>
-        <a href="https://sahriskin.ma" class="project-link" target="_blank" rel="noopener">sahriskin.ma →</a>
       </div>
 
       <div class="project-card tilt-card reveal">
@@ -1001,7 +1024,7 @@
       </div>
       <div class="contact-card tilt-card reveal">
         <div class="card-shine"></div>
-        <div class="big-initial">HB</div>
+        <img src="images/hamza.png" alt="Hamza Bounaga" class="big-initial" width="96" height="96">
         <h3>Hamza Bounaga</h3>
         <p class="subtitle">Full-Stack Developer · Laravel, React &amp; WordPress</p>
         <a href="mailto:hamzabounaga4@gmail.com" class="btn-primary" style="display: inline-block;">Send me an email</a>
