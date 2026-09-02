@@ -676,14 +676,10 @@
   }
 
   @media (prefers-reduced-motion: reduce) {
-    *, *::before, *::after {
-      animation: none !important;
-      transition: none !important;
-    }
-    .grain { display: none; }
+    .grain, .cursor-dot, .cursor-ring, .cursor-glow { display: none; }
+    .hero-copy > * { animation: none; opacity: 1; filter: none; transform: none; }
     .reveal { opacity: 1; transform: none; }
     body { cursor: auto; }
-    .cursor-dot, .cursor-ring, .cursor-glow { display: none; }
   }
 </style>
 </head>
@@ -1096,7 +1092,7 @@
     document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('in'); });
   }
 
-  if (reduce || typeof THREE === 'undefined') return;
+  if (typeof THREE === 'undefined') return;
 
   var canvas = document.getElementById('webgl-bg');
   var renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true, alpha: true });
@@ -1125,14 +1121,14 @@
       emissive: color,
       emissiveIntensity: 0.12,
       transparent: true,
-      opacity: 0.72
+      opacity: 0.88
     });
     var mesh = new THREE.Mesh(geometry, mat);
     mesh.position.set(x, y, z);
     mesh.scale.setScalar(scale);
     var wire = new THREE.Mesh(
       geometry,
-      new THREE.MeshBasicMaterial({ color: 0xa8c6ff, wireframe: true, transparent: true, opacity: 0.18 })
+      new THREE.MeshBasicMaterial({ color: 0xc5dcff, wireframe: true, transparent: true, opacity: 0.32 })
     );
     wire.position.copy(mesh.position);
     wire.scale.setScalar(scale * 1.01);
@@ -1141,10 +1137,10 @@
     return { mesh: mesh, wire: wire };
   }
 
-  var ico = addShape(new THREE.IcosahedronGeometry(1.4, 0), 3.6, 0.8, -2.2, 1, 0x4f8ef7);
-  var torus = addShape(new THREE.TorusGeometry(1.35, 0.08, 16, 80), -3.8, -0.4, -1.5, 1, 0x2dd4bf);
-  var octa = addShape(new THREE.OctahedronGeometry(0.85), -1.6, 2.4, -3.4, 1, 0x7aa8ff);
-  var dodeca = addShape(new THREE.DodecahedronGeometry(0.7), 2.2, -2.1, -4, 1, 0x3d6fd4);
+  var ico = addShape(new THREE.IcosahedronGeometry(1.6, 0), 2.8, 0.55, -1.2, 1.15, 0x4f8ef7);
+  var torus = addShape(new THREE.TorusGeometry(1.55, 0.07, 16, 90), -2.9, -0.15, -0.8, 1.1, 0x2dd4bf);
+  var octa = addShape(new THREE.OctahedronGeometry(0.95), -1.15, 2.05, -2.2, 1.05, 0x7aa8ff);
+  var dodeca = addShape(new THREE.DodecahedronGeometry(0.78), 1.7, -1.7, -2.6, 1.1, 0x3d6fd4);
 
   var count = window.innerWidth < 768 ? 500 : 1400;
   var positions = new Float32Array(count * 3);
@@ -1158,10 +1154,10 @@
   var points = new THREE.Points(
     pGeo,
     new THREE.PointsMaterial({
-      size: 0.035,
-      color: 0x8eb6ff,
+      size: 0.05,
+      color: 0xb7d0ff,
       transparent: true,
-      opacity: 0.65,
+      opacity: 0.85,
       depthWrite: false
     })
   );
